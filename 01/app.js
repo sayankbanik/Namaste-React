@@ -1,14 +1,38 @@
-// create an element with React
-const heading = React.createElement(
-  "h1",
-  { id: "heading", sad: "lopo" },
-  "Hello World! from React."
-);
-// createElement("tag",{attributes},"tag content")
-console.log(heading); // object
-// createElement(type,props(attributes,children)) / returns a react element
-// create the root to manipulate/adding in the DOM
+/**
+ * Create this nested HTML using React
+ *
+ * <div id="parent">
+ *      <div class="child">
+ *          <h1>I am the h1 tag</h1>
+ *          <h2>I am the h2 tag</h2>
+ *      </div>
+ *      <div class="child">
+ *      <h2>I am the nect h2</h2>
+ *      </div>
+ * </div>
+ *
+ *
+ */
+
+const parent = React.createElement("div", { id: "parent" }, [
+  React.createElement("div", { className: "child" }, [
+    React.createElement("h1", {}, "I am the h1 tag"),
+    React.createElement("h2", {}, "I am the h2 element"),
+  ]),
+  React.createElement(
+    "div",
+    { className: "child" },
+    React.createElement("h2", {}, "I am the next h2")
+  ),
+]);
+console.log(parent);
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// it's added to DOM, now we have to render it in the page
-root.render(heading);
-// render(object/reactElement) , it accepts the reactElement as an object and convert it to html tag
+root.render(parent);
+
+/**
+ * if i build it in this way will get below error
+ * react.development.js:199 Warning: Each child in a list should have a unique "key" prop.
+ * and also
+ * if we build this way, it is not efficient and also complicated
+ * now JSX come into the picture
+ */
