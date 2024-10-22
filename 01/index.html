@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript Execution Context</title>
+    <title>Hello React</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
   <body>
     <div id="root"></div>
@@ -16,13 +17,6 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
-    <script>
-      // create an element with React
-      const heading = React.createElement("h1", {}, "Hello World! from React.");
-      // create the root to manipulate/adding in the DOM
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      // it's added to DOM, now we have to render it in the page
-      root.render(heading);
-    </script>
+    <script src="./app.js"></script>
   </body>
 </html>
